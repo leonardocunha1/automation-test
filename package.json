@@ -1,0 +1,47 @@
+{
+  "name": "desafio-ibge-1209",
+  "version": "1.0.0",
+  "description": "Automação RPA que navega pelo SIDRA/IBGE, configura a tabela 1209 e baixa a população de 60 anos ou mais por UF",
+  "type": "module",
+  "author": "Leonardo Cunha",
+  "license": "ISC",
+  "scripts": {
+    "start": "tsx desafio_ibge_1209.ts",
+    "start:headed": "cross-env HEADLESS=false tsx desafio_ibge_1209.ts",
+    "start:debug": "cross-env HEADLESS=false SLOW_MO=250 tsx desafio_ibge_1209.ts",
+    "postinstall": "playwright install chromium",
+    "test": "playwright test",
+    "test:unit": "playwright test --project=unit",
+    "test:e2e": "playwright test --project=e2e",
+    "test:report": "playwright show-report",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run test:unit"
+  },
+  "keywords": [
+    "rpa",
+    "playwright",
+    "automation",
+    "sidra",
+    "ibge"
+  ],
+  "dependencies": {
+    "playwright": "1.60.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^24.10.0",
+    "cross-env": "^10.1.0",
+    "eslint": "^9.39.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-playwright": "^2.11.0",
+    "prettier": "^3.9.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "typescript-eslint": "^8.46.0"
+  }
+}

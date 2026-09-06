@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "lib": ["ES2022"],
+    // Explícito de propósito: o projeto roda em Node, não no browser.
+    // Sem isto o TS Server do editor às vezes não injeta os globais (`console`,
+    // `process`) mesmo com @types/node instalado.
+    "types": ["node"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "desafio_ibge_1209.ts",
+    "playwright.config.ts",
+    "eslint.config.mjs"
+  ],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,9 @@
+node_modules/
+capturas/
+test-results/
+playwright-report/
+.playwright-mcp/
+*.log
+
+# O CSV gerado É um entregável do desafio — versionado de propósito.
+# !dados/populacao_60mais_1209.csv

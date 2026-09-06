@@ -1,0 +1,9 @@
+{
+  // Usa o TypeScript do próprio projeto (5.9.x), e não a versão embutida no VSCode.
+  // O tsconfig usa `erasableSyntaxOnly` e `allowImportingTsExtensions`, que exigem
+  // TS 5.8+; com uma versão antiga o TS Server descarta o tsconfig e passa a
+  // reportar erros fantasma (`Cannot find name 'node:fs/promises'`, `console`...)
+  // que o `npm run typecheck` não reproduz.
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

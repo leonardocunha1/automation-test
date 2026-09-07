@@ -1,4 +1,4 @@
-import type { Download, Page } from 'playwright';
+import type { Download, Locator, Page } from 'playwright';
 import { BasePage } from './BasePage.ts';
 import { EditorDimensao } from '../components/EditorDimensao.ts';
 import { SeletorTerritorial } from '../components/SeletorTerritorial.ts';
@@ -49,10 +49,16 @@ export class TabelaPage extends BasePage {
     return match?.[1] ? Number(match[1]) : null;
   }
 
-  /** Título da tabela. Ancorado em `#nome-tabela`: um `h4` genérico pega um menu oculto. */
-  async titulo(): Promise<string> {
-    const texto = (await this.page.locator('#nome-tabela h4').first().textContent()) ?? '';
-    return texto.replace(/\s+/g, ' ').trim();
+  /**
+   * Cabeçalho da tabela
+   */
+  get titulo(): Locator {
+    return this.page.locator('#nome-tabela').getByRole('heading', { name: /^Tabela \d+/ });
+  }
+
+  /** O mesmo título como texto — para o script CLI, que não tem `expect` disponível. */
+  async tituloTexto(): Promise<string> {
+    return (await this.titulo.textContent())?.replace(/\s+/g, ' ').trim() ?? '';
   }
 
   /** Anos disponíveis, do mais recente para o mais antigo. */

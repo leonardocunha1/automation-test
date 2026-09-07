@@ -22,9 +22,8 @@ test.describe('Tabela 1209 — população de 60 anos ou mais por UF', () => {
       await home.abrir();
       const encontrada = await home.buscarTabela(config.termoBusca);
 
-      // A navegação precisa ter partido da home: nenhuma URL de tabela é digitada.
-      expect(encontrada.numeroNaUrl()).toBe(config.tabela.numero);
-      expect(await encontrada.titulo()).toContain(config.tabela.tituloEsperado);
+      await expect(encontrada.titulo).toContainText(`Tabela ${config.tabela.numero}`);
+      await expect(encontrada.titulo).toContainText(config.tabela.tituloEsperado);
       return encontrada;
     });
 

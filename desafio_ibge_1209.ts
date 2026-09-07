@@ -82,7 +82,7 @@ async function confirmarTabelaCorreta(tabela: TabelaPage): Promise<void> {
     );
   }
 
-  const titulo = await tabela.titulo();
+  const titulo = await tabela.tituloTexto();
   if (!titulo.includes(config.tabela.tituloEsperado)) {
     log.aviso(`Título inesperado na página da tabela: "${titulo}".`);
   }
